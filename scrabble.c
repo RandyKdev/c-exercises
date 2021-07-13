@@ -12,8 +12,6 @@ int compute_score(char *word);
 
 int main(void) {
     // Get input words from both players
-    // printf("%d %d", isupper('Z'), 'Z');
-    // return 0;
     char word1[46], word2[46];
 
     printf("Player 1: ");
