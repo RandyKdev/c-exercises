@@ -12,7 +12,9 @@ int compute_score(char *word);
 
 int main(void) {
     // Get input words from both players
-    char word1[45], word2[45];
+    // printf("%d %d", isupper('Z'), 'Z');
+    // return 0;
+    char word1[46], word2[46];
 
     printf("Player 1: ");
     scanf("%s", word1);
@@ -25,12 +27,19 @@ int main(void) {
     int score2 = compute_score(word2);
 
     if(score1 > score2) printf("Player 1 wins!\n");
-    else if(score1 < score2) printf("Player 2 wins!");
-    else printf("Tie!");
+    else if(score1 < score2) printf("Player 2 wins!\n");
+    else printf("Tie!\n");
 
     return 0;
 }
 
 int compute_score(char *word) {
-    
+    int i = 0, c, score = 0;
+    while((c = word[i++]) != '\0') {
+        if(isupper(c))
+            score += POINTS[c - 65];
+        else if(islower(c))
+            score += POINTS[c - 97];
+    }
+    return score;
 }
