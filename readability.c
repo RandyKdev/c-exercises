@@ -5,6 +5,7 @@
 #include<stdbool.h>
 #include<ctype.h>
 #include<math.h>
+#include<assert.h>
 
 int main(void) {
     int c, letters = 0, words = 1, sentences = 0;
