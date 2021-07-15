@@ -46,6 +46,6 @@ void test() {
 int main(void) {
 
     test();
-
+    printf("hey\n");
     return 0;
 }
