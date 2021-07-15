@@ -37,7 +37,7 @@ void test() {
         "A large class of computational problems involve the determination of properties of graphs, digraphs, integers, arrays of integers, finite families of finite sets, boolean formulas and elements of other countable domains." 
     };
     
-    const int solutions[] = {-8, 2, 3, 5, 7, 8, 8, 9 , 10, 18};
+    const int solutions[] = {-9, 2, 3, 5, 7, 8, 8, 9 , 10, 18};
     
     for(int i = 0; i < 10; i++)
         assert(readability(testStrings[i]) == solutions[i]);
