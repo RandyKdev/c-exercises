@@ -17,7 +17,7 @@ jobs:
       run: |
         sudo apt-get install build-essential
         echo $GITHUB_WORKSPACE
-        gcc $GITHUB_WORKSPACE/readability.c -o output
+        gcc $GITHUB_WORKSPACE/readability.c -o output -lm
         ./output
         rm output
       
