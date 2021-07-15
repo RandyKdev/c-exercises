@@ -14,13 +14,12 @@ int readability(const char *phrase) {
         else if(c == ' ') words++;
         else if (c == '?' || c == '.' || c == '!') sentences++;
 
-    float lettersPer100Words = ((float)letters / (float) words) * 100.0;
-    float sentencesPer100Words = ((float)sentences / (float) words) * 100.0;
+    float lettersPer100Words = (letters / words) * 100.0;
+    float sentencesPer100Words = (sentences / words) * 100.0;
 
     float index = (0.0588 * lettersPer100Words) - (0.296 * sentencesPer100Words) - 15.8;
-    index = (float) round(index);
 
-    return (int) index;
+    return (int) round(index);
 }
 
 void test() {
