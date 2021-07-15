@@ -16,7 +16,7 @@ jobs:
     - name: build
       run: |
       sudo apt-get install build-essential
-      gcc ${{GITHUB_WORKSPACE}}${{GITHUB_EVENT_PATH}} -O output
+      gcc $GITHUB_WORKSPACE/$GITHUB_EVENT_PATH -O output
       ./output
       rm output
 
