@@ -1,5 +1,5 @@
 // link to problem statement
-// 
+// https://cs50.harvard.edu/x/2021/psets/2/caesar/
 
 #include <stdio.h>
 #include<string.h>
@@ -7,6 +7,8 @@
 #include<ctype.h>
 
 #define LEN_OF_PLAINTEXT 50
+
+int getCipherChar(int plainChar, int key, int startingChar);
 
 int main(int argc, char *argv[]) {
     if(argc != 2) {
@@ -21,26 +23,27 @@ int main(int argc, char *argv[]) {
         }
 
     int key = atoi(argv[1]);
+    char plaintext[LEN_OF_PLAINTEXT];
 
-    char plaintext[50];
-    printf("plaintext: ");\
+    printf("plaintext: ");
     scanf("%[^\n]s", plaintext);
     printf("ciphertext: ");
-    for(int c, i = 0, len = strlen(plaintext); i < len; i++) {
-        c = plaintext[i];
-        if(islower(c)) {
-            c = c - 'a';
-            c = (c + key) % 26;
-            c = c + 'a';
-            printf("%c", c);
-        } else if(isupper(c)) {
-            c = c - 'A';
-            c = (c + key) % 26;
-            c = c + 'A';
-            printf("%c", c);
-        } else printf("%c", c);
-    }   
+
+    for(int i = 0, len = strlen(plaintext); i < len; i++)
+        if(islower(plaintext[i]))
+            printf("%c", getCipherChar(plaintext[i], key, 'a'));
+        else if(isupper(plaintext[i]))
+            printf("%c", getCipherChar(plaintext[i], key, 'A'));
+        else printf("%c", plaintext[i]);
+    
     printf("\n");
+    
     return 0;
 }
 
+int getCipherChar(int plainChar, int key, int startingChar) {
+    plainChar = plainChar - startingChar;
+    plainChar = (plainChar + key) % 26;
+    plainChar = plainChar + startingChar;
+    return plainChar;
+}
