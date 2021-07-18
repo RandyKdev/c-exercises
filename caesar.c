@@ -44,8 +44,8 @@ int main(int argc, char *argv[]) {
 }
 
 int getCipherChar(int plainChar, int key, int startingChar) {
-    plainChar = plainChar - startingChar;
+    plainChar -= startingChar;
     plainChar = (plainChar + key) % 26;
-    plainChar = plainChar + startingChar;
+    plainChar += startingChar;
     return plainChar;
 }
