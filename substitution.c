@@ -7,6 +7,8 @@
 
 #define LEN_OF_PLAINTEXT 50
 
+// todo: Add comments
+
 char getCipherChar(char plainChar, char *key);
 
 int main(int argc, char *argv[]) {
