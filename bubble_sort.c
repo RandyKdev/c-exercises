@@ -1,10 +1,12 @@
 /*
 *@file
-*@brief A program that sorts a list (array) of numbers (int) using bubble sort algo
+*@brief A program that sorts a list (array) of numbers (int)
+*in ascending order using bubble sort algo
 */
 
 #include<stdio.h>
 #include<stdbool.h>
+#include<assert.h>
 
 void bubbleSort(int *numbers, int length) {
     bool swapped = false;
@@ -20,6 +22,25 @@ void bubbleSort(int *numbers, int length) {
         if(!swapped) return;
         swapped = false;
     }
+}
+
+void test() {
+    int numbers1[] = {1};
+    int numbers2[] = {5, 4, 3, 2, 1, 0};
+    int numbers3[] = {-1, -4, -2, 0};
+
+    int solution3[] = {-4, -2, -1, 0};
+
+    bubbleSort(numbers1, 1);
+    assert(numbers1[0] == 1);
+
+    bubbleSort(numbers2, 6);
+    for(int i = 0; i < 6; i++)
+        assert(numbers2[i] == i);
+    
+    bubbleSort(numbers3, 4);
+    for(int i = 0; i < 4; i++) 
+        assert(numbers3[i] == solution3[i]);
 }
 
 int main(void) {
