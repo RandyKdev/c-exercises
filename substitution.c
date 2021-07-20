@@ -21,12 +21,11 @@ int main(int argc, char *argv[]) {
         printf("Key must contain 26 characters.\n");
         return 1;
     }
-    for(int i = 0; i < lenOfKey; i++) {
-        if(!isalpha(argv[1][i])){
+    for(int i = 0; i < lenOfKey; i++)
+        if(!isalpha(argv[1][i])) {
             printf("Key must contain only letters of the alphabet\n");
             return 1;
         }
-    }
 
     for(int i = 0; i < lenOfKey; i++)
         for(int j = i + 1; j < lenOfKey; j++)
