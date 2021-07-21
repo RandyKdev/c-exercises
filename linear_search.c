@@ -26,6 +26,7 @@ void test() {
     assert(linearSearch(5, numbers3, 5) == 1);
     assert(linearSearch(1, numbers4, 4) == -1);
 }
+
 int main() {
 
     test();
