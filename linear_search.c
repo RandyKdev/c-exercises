@@ -8,6 +8,8 @@
 #include<stdio.h>
 #include<assert.h>
 
+// todo: add comments
+
 int linearSearch(int length, int* numbers, int searchElem) {
     for(int i = 0; i < length; i++) 
         if(numbers[i] == searchElem) return i;
