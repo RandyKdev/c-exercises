@@ -1,4 +1,4 @@
-/*
+/**
 *@file
 *@brief A program that sorts a list (array) of numbers (int)
 *in ascending order using bubble sort algo
