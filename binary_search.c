@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief A program to search for a number in a sorted list of numbers using the binary search algo
+ * @brief A program to search for a number in a sorted list of numbers (ascending order) using the binary search algo
  */
 
 #include<stdio.h>
