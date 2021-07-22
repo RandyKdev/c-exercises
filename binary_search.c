@@ -6,6 +6,8 @@
 #include<stdio.h>
 #include<assert.h>
 
+// todo: Add comments
+
 int binarySearch(int length, int* numbers, int searchElem) {
     int start = 0;
     int end = length;
