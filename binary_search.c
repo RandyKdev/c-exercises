@@ -29,6 +29,7 @@ void test() {
     assert(binarySearch(10, numbers1, 9) == 8);
     assert(binarySearch(10, numbers1, 10) == 9);
     assert(binarySearch(10, numbers1, 1) == 0);
+    assert(binarySearch(10, numbers1, 0) == -1);
     assert(binarySearch(10, numbers1, 11) == -1);
 
     int numbers2[] = {-9, -8, -7, -6, -5, -4, -3, -2, -1, 0};
@@ -38,6 +39,7 @@ void test() {
     assert(binarySearch(10, numbers2, -5) == 4);
     assert(binarySearch(10, numbers2, -3) == 6);
     assert(binarySearch(10, numbers2, -7) == 2);
+    assert(binarySearch(10, numbers2, 1) == -1);
     assert(binarySearch(10, numbers2, -10) == -1);
 }
 
