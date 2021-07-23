@@ -1,10 +1,13 @@
 /**
  * @file
- * @brief  A program to sort an array of numbers using the selection sort algo
+ * @brief A program to sort an array of numbers (ascending order) 
+ * using the selection sort algo
  */
 
 #include<stdio.h>
 #include<assert.h>
+
+// todo: add comments
 
 void selectionSort(int length, int* numbers) {
     for(int smallestAtIndex, temp, i = 0; i < length - 1; i++) {
