@@ -6,23 +6,24 @@
 #include<stdio.h>
 
 void selectionSort(int length, int* numbers) {
-    int endOfSorted= 0; // exclusive
-    // int startOfUnsorted = 0; // [3, 2,1] -> [1, 2, 3] -> 1, 2, 3
-    int smallestIndex = 0;
-    int temp;
-    for(int i = 0; i < length - 1; i++) {
-        for(int j = endOfSorted; j < length; j++) {
-            if(numbers[j] < numbers[smallestIndex]) smallestIndex = j;
-        }
-        temp = numbers[smallestIndex];
-        numbers[smallestIndex] = numbers[endOfSorted];
-        numbers[endOfSorted] = temp;
-        endOfSorted++;
+    for(int smallestAtIndex, temp, i = 0; i < length - 1; i++) {
+        smallestAtIndex = i;
+        
+        for(int j = i; j < length; j++)
+            if(numbers[j] < numbers[smallestAtIndex]) smallestAtIndex = j;
+
+        temp = numbers[smallestAtIndex];
+        numbers[smallestAtIndex] = numbers[i];
+        numbers[i] = temp;
     }
 }
 
 void test() {
-    
+    int numbers[] = {5,4,3,2,1};
+    selectionSort(5, numbers);
+    for(int i = 0; i < 5; i++)
+    printf("%d ", numbers[i]);
+    printf("\n");
 }
 
 int main() {
