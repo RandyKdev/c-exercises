@@ -8,14 +8,18 @@
 #include<stdbool.h>
 #include<assert.h>
 
+void swap(int* num1, int* num2) {
+    int temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
+}
+
 void bubbleSort(int *numbers, int length) {
     bool swapped = false;
     for(int i = 0; i < length; i++) {
         for(int j = 0; j < length - 1 - i; j++)
             if(numbers[j] > numbers[j + 1]) {
-                int temp = numbers[j];
-                numbers[j] = numbers[j + 1];
-                numbers[j + 1] = temp;
+                swap(&numbers[j], &numbers[j + 1]);
                 swapped = true;
             }
         
