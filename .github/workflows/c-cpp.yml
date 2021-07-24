@@ -20,6 +20,14 @@ jobs:
         ./output
         gcc $GITHUB_WORKSPACE/scrabble.c -o output -lm
         ./output
+        gcc $GITHUB_WORKSPACE/bubble_sort.c -o output -lm
+        ./output
+        gcc $GITHUB_WORKSPACE/selection_sort.c -o output -lm
+        ./output
+        gcc $GITHUB_WORKSPACE/linear_search.c -o output -lm
+        ./output
+        gcc $GITHUB_WORKSPACE/binary_search.c -o output -lm
+        ./output
         rm output
       
 
