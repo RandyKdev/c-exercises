@@ -10,12 +10,12 @@
 
 int binarySearch(int length, int* numbers, int searchElem) {
     int start = 0;
-    int end = length;
+    int end = length - 1;
     int middle;
-    while (start != end) {
+    while (start <= end) {
         middle = (start + end) / 2;
         if(numbers[middle] == searchElem) return middle;
-        if(numbers[middle] > searchElem) end = middle;
+        if(numbers[middle] > searchElem) end = middle - 1;
         else start = middle + 1;
     }
     return -1;
