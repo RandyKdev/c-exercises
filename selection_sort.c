@@ -9,16 +9,20 @@
 
 // todo: add comments
 
+void swap(int* num1, int* num2) {
+    int temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
+}
+
 void selectionSort(int length, int* numbers) {
-    for(int smallestAtIndex, temp, i = 0; i < length - 1; i++) {
+    for(int smallestAtIndex, i = 0; i < length - 1; i++) {
         smallestAtIndex = i;
         
         for(int j = i; j < length; j++)
             if(numbers[j] < numbers[smallestAtIndex]) smallestAtIndex = j;
 
-        temp = numbers[smallestAtIndex];
-        numbers[smallestAtIndex] = numbers[i];
-        numbers[i] = temp;
+        swap(&numbers[smallestAtIndex], &numbers[i]);
     }
 }
 
