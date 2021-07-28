@@ -6,15 +6,7 @@
 #include<stdio.h>   /// for IO operations
 #include<assert.h>  /// for tests
 
-void merge_sort(int numbers[], int leftIndex, int rightIndex) {
-
-    if(leftIndex == rightIndex) return; // edge case, when there is only one number in the array
-
-    int middle = (leftIndex + rightIndex) / 2; // calculates the middle of array
-
-    merge_sort(numbers, leftIndex, middle); // merge left sub array
-    merge_sort(numbers, middle + 1, rightIndex); // merge right sub array
-
+void merge(int numbers[], int leftIndex, int rightIndex, int middle) {
     int tempLeftArr[middle - leftIndex + 1]; // left sub array
     int tempRightArr[rightIndex - middle]; // right sub array
 
@@ -35,6 +27,18 @@ void merge_sort(int numbers[], int leftIndex, int rightIndex) {
         else if(tempRightArrIndex == tempRightArrLength) numbers[i] = tempLeftArr[tempLeftArrIndex++];
         else if(tempLeftArr[tempLeftArrIndex] < tempRightArr[tempRightArrIndex]) numbers[i] = tempLeftArr[tempLeftArrIndex++];
         else numbers[i] = tempRightArr[tempRightArrIndex++];
+}
+
+void merge_sort(int numbers[], int leftIndex, int rightIndex) {
+
+    if(leftIndex == rightIndex) return; // edge case, when there is only one number in the array
+
+    int middle = (leftIndex + rightIndex) / 2; // calculates the middle of array
+
+    merge_sort(numbers, leftIndex, middle); // merge left sub array
+    merge_sort(numbers, middle + 1, rightIndex); // merge right sub array
+
+    merge(numbers, leftIndex, rightIndex, middle); // merging sub arrays in main array
 }
 
 void test() {
