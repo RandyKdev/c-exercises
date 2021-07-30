@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <strings.h>
 
 // Max voters and candidates
 #define MAX_VOTERS 100
@@ -55,7 +56,8 @@ int main(int argc, char* argv[])
         candidates[i].eliminated = false;
     }
 
-    voter_count = get_int("Number of voters: ");
+    printf("Number of voters: ");
+    scanf("%d", &voter_count);
     if (voter_count > MAX_VOTERS)
     {
         printf("Maximum number of voters is %i\n", MAX_VOTERS);
@@ -129,15 +131,29 @@ int main(int argc, char* argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, char* name)
 {
-    // TODO
+    for(int i = 0; i < candidate_count; i++) {
+        if(strcmp(candidates[i], name) == 0) {
+            preferences[voter][rank] = i;
+            return true;
+        }
+    }
     return false;
 }
 
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
 {
-    // TODO
-    return;
+    for(int i = 0; i < candidate_count; i++) {
+        candidates[i].votes = 0;
+    }
+    for(int i = 0; i < voter_count; i++) {
+        for(int j = 0; j < candidate_count; j++) {
+            if(!candidates[preferences[i][j]].eliminated) {
+                candidates[preferences[i][j]].votes++;
+                break;
+            }
+        }
+    }
 }
 
 // Print the winner of the election, if there is one
