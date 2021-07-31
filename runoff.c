@@ -1,6 +1,12 @@
+/**
+ * @file
+ * @brief Link to problem statement
+ *  https://cs50.harvard.edu/x/2021/psets/3/runoff/
+ */
+
 #include <stdio.h>
 #include <stdbool.h>
-#include <strings.h>
+#include <string.h>
 
 // Max voters and candidates
 #define MAX_VOTERS 100
@@ -132,7 +138,7 @@ int main(int argc, char* argv[])
 bool vote(int voter, int rank, char* name)
 {
     for(int i = 0; i < candidate_count; i++) {
-        if(strcmp(candidates[i], name) == 0) {
+        if(strcmp(candidates[i].name, name) == 0) {
             preferences[voter][rank] = i;
             return true;
         }
@@ -161,7 +167,7 @@ bool print_winner(void)
 {
     for(int i = 0; i < candidate_count; i++) {
         if(!candidates[i].eliminated && candidates[i].votes >= voter_count / 2) {
-            printf("Winner: %s", candidates[i].name);
+            printf("Winner: %s\n", candidates[i].name);
             return true;
         }
     }
