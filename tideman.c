@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 // Max number of candidates
 #define MAX 9
@@ -109,7 +110,12 @@ int main(int argc, char* argv[])
 // Update ranks given a new vote
 bool vote(int rank, char* name, int ranks[])
 {
-    // TODO
+    for(int i = 0; i < candidate_count; i++) {
+        if(strcmp(candidates[i], name) == 0) {
+            ranks[rank] = i;
+            return true;
+        }
+    }
     return false;
 }
 
