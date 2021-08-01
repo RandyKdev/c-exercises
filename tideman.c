@@ -123,7 +123,7 @@ bool vote(int rank, char* name, int ranks[])
 void record_preferences(int ranks[])
 {
     for(int i = 0; i < candidate_count - 1; i++) {
-        for(int j = 1; j < candidate_count; j++) {
+        for(int j = i + 1; j < candidate_count; j++) {
             preferences[ranks[i]][ranks[j]]++;
         }
     }
@@ -134,7 +134,7 @@ void add_pairs(void)
 {
     pair_count = 0;
     for(int i = 0; i < candidate_count - 1; i++) {
-        for(int j = 1; j < candidate_count; j++) {
+        for(int j = i + 1; j < candidate_count; j++) {
             if(preferences[i][j] == preferences[j][i]) {
                 break;
             }
@@ -160,7 +160,7 @@ void sort_pairs(void)
     for(int i = 0; i < pair_count - 1; i++) {
         swapped = false;
         for(int j = 0; j < pair_count - i; j++) {
-            if(preferences[pairs[j].winner][pairs[j].loser] > preferences[pairs[j+1].winner][pairs[j+1].loser]) {
+            if(preferences[pairs[j].winner][pairs[j].loser] < preferences[pairs[j+1].winner][pairs[j+1].loser]) {
                 pair temp = pairs[j];
                 pairs[j] = pairs[j+1];
                 pairs[j+1] = temp;
