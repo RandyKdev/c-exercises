@@ -195,16 +195,16 @@ bool willCycleExist(int start, int current) {
 // Print the winner of the election
 void print_winner(void)
 {
-    int source;
-    for(int i = 0; i < candidate_count; i++) {
+    int trueCounts;
+     for(int i = 0; i < candidate_count; i++) {
+        trueCounts = 0;
         for(int j = 0; j < candidate_count; j++) {
-            for(int k = 0; k < candidate_count; k++) {
-                if(locked[j][k] && source == k) {
-                    source = j;
-                }
+            if(locked[j][i]) trueCounts++;
+            if(j == candidate_count - 1 && trueCounts == 0) {
+                    printf("%s\n", candidates[i]);
+                    return;
             }
         }
     }
-    printf("%s\n", candidates[source]);
 }
 
