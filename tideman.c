@@ -189,15 +189,10 @@ void lock_pairs(void)
 bool cycle(int start, int current) {
     if(current == start) return true;
 
-    for(int i = 0; i < candidate_count; i++) {
-        for(int j = 0; j < candidate_count; j++) {
-            if(locked[i][j]) {
-                if(i == current) {
-                    return cycle(start, j);
-                }
-            }
-        }
-    }
+    for(int i = 0; i < candidate_count; i++)
+        if(locked[current][i])
+            return cycle(start, i);
+
     return false;
 }
 
