@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-#include <stdlib.h>
+#include <string.h>
 
 // Max number of candidates
 #define MAX 9
@@ -39,6 +39,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+bool cycle(int start, int current);
 
 int main(int argc, char* argv[])
 {
@@ -176,14 +177,43 @@ void sort_pairs(void)
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
-    // TODO
-    return;
+    bool isCycle;
+    for(int i = 0; i < pair_count; i++) {
+        isCycle = cycle(pairs[i].winner, pairs[i].loser);
+        if(!isCycle)
+            locked[pairs[i].winner][pairs[i].loser] = true;
+    }
+}
+
+// Go through the graph to find if there exist a cycle
+bool cycle(int start, int current) {
+    if(current == start) return true;
+
+    for(int i = 0; i < candidate_count; i++) {
+        for(int j = 0; j < candidate_count; j++) {
+            if(locked[i][j]) {
+                if(i == current) {
+                    return cycle(start, j);
+                }
+            }
+        }
+    }
+    return false;
 }
 
 // Print the winner of the election
 void print_winner(void)
 {
-    // TODO
-    return;
+    int source;
+    for(int i = 0; i < candidate_count; i++) {
+        for(int j = 0; j < candidate_count; j++) {
+            for(int k = 0; k < candidate_count; k++) {
+                if(locked[j][k] && source == k) {
+                    source = j;
+                }
+            }
+        }
+    }
+    printf("%s\n", candidates[source]);
 }
 
