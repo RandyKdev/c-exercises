@@ -39,7 +39,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
-bool cycle(int start, int current);
+bool willCycleExist(int start, int current);
 
 int main(int argc, char* argv[])
 {
@@ -177,21 +177,17 @@ void sort_pairs(void)
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
-    bool isCycle;
-    for(int i = 0; i < pair_count; i++) {
-        isCycle = cycle(pairs[i].winner, pairs[i].loser);
-        if(!isCycle)
-            locked[pairs[i].winner][pairs[i].loser] = true;
-    }
+    for(int i = 0; i < pair_count; i++) 
+        locked[pairs[i].winner][pairs[i].loser] = !willCycleExist(pairs[i].winner, pairs[i].loser);;
 }
 
 // Go through the graph to find if there exist a cycle
-bool cycle(int start, int current) {
+bool willCycleExist(int start, int current) {
     if(current == start) return true;
 
     for(int i = 0; i < candidate_count; i++)
         if(locked[current][i])
-            return cycle(start, i);
+            return willCycleExist(start, i);
 
     return false;
 }
