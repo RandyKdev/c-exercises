@@ -29,5 +29,9 @@ jobs:
         gcc $GITHUB_WORKSPACE/binary_search.c -o output -lm
         ./output
         rm output
+        
+        gcc $GITHUB_WORKSPACE/Project_Euler/1_sum_of_mult_two_nums.c -o output -lm
+        ./output
+        rm output
       
 
