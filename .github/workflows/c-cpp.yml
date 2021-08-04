@@ -32,6 +32,8 @@ jobs:
         
         gcc $GITHUB_WORKSPACE/Project_Euler/1_sum_of_mult_two_nums.c -o output -lm
         ./output
+        gcc $GITHUB_WORKSPACE/Project_Euler/2_even_fib_nums.c -o output -lm
+        ./output
         rm output
       
 
