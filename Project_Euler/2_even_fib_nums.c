@@ -12,6 +12,14 @@
  */
 
 #include <assert.h> // for assert function
+#include <stdio.h>
+
+long long int fib(int term) {
+    if(term == 0) return 0;
+    if(term == 1) return 1;
+
+    return fib(term - 1) + fib(term - 2);
+}
 
 /**
  * @brief Sums the Even Fibonaccy numbers starting from 1, 2 upto `limit`
@@ -19,7 +27,14 @@
  * @returns Sum of the Even Fibonacci numbers in the sequence
  */
 long long int sumOfEvenFibNumsUpto(long long int limit) {
-    return 0;
+    long long int fibNum;
+    long long int sum = 0;
+    int term = 3;
+    while((fibNum = fib(term)) < limit) {
+        sum += fibNum;
+        term += 2;
+    }
+    return sum;
 }
 
 /**
@@ -28,6 +43,7 @@ long long int sumOfEvenFibNumsUpto(long long int limit) {
  */
 void test() {
     // The following lines tests the program of correct behaviour
+    assert(sumOfEvenFibNumsUpto(4000000) == 5702886);
     assert(sumOfEvenFibNumsUpto(10) == 7);
     assert(sumOfEvenFibNumsUpto(20) == 20);
     assert(sumOfEvenFibNumsUpto(30) == 20);
@@ -41,6 +57,6 @@ void test() {
  * @returns 0 on exit
  */
 int main() {
-    // test(); // runs self-test implementation of the program
+    test(); // runs self-test implementation of the program
     return 0;
 }
