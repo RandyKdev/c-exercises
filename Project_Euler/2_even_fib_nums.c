@@ -12,13 +12,14 @@
  */
 
 #include <assert.h> // for assert function
+#include <inttypes.h> // for uint64_t, uint16_t data types
 
 /**
  * @brief Calculates the number at the `term`'th position of the fibonacci sequence
  * @param term the nth position in the fibonacci sequence
  * @returns The number at the `term`'th position of the fibonacci sequence
  */
-long long int fib(int term) {
+uint64_t fib(int term) {
     if(term == 0) return 0;  // base case
     if(term == 1) return 1;  // base case
 
@@ -30,10 +31,10 @@ long long int fib(int term) {
  * @param limit the limit at which the fibonacci sequence should end
  * @returns Sum of the Even Fibonacci numbers in the sequence
  */
-long long int sumOfEvenFibNumsUpto(long long int limit) {
-    long long int fibNum;   // holds the fibonacci number generated
-    long long int sum = 0;  // holds the sum of the even valued terms
-    int term = 3;           // starting at term 3 (counting from 0) because fib sequence starts at 0, 1, 1, 2
+uint64_t sumOfEvenFibNumsUpto(uint64_t limit) {
+    uint64_t fibNum;   // holds the fibonacci number generated
+    uint64_t sum = 0;  // holds the sum of the even valued terms
+    uint16_t term = 3;           // starting at term 3 (counting from 0) because fib sequence starts at 0, 1, 1, 2
     
     while((fibNum = fib(term)) < limit) { // Executes while the current fibonnaci number at the `term`'th position is less than `limit`
         sum += fibNum;      // Adds the new fibonacci number to `sum`
