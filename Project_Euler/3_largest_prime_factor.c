@@ -10,8 +10,8 @@
  */
 
 #include <assert.h> // for assert function
-#include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 #include <inttypes.h> // for uint64_t, uint16_t data types
 
 /**
@@ -21,7 +21,11 @@
  * @returns `false`  if `number` is NOT prime
  */
 bool isPrime(uint64_t number) {
-    for(uint64_t i = 2; i < number; i++) {
+    if(number == 2 || number == 3) return true;
+
+    if(number % 2 == 0) return false;
+
+    for(uint64_t i = 3; i <= sqrt(number); i += 2) {
         if(number % i == 0) {
             return false;
         }
@@ -36,11 +40,14 @@ bool isPrime(uint64_t number) {
  * @returns The largest prime factor of `number` 
  */
 uint64_t largestPrimeFactor(uint64_t number) {
-    for(uint64_t i = number / 2; i > 0; i--) {
+    for(uint64_t i = 2; i <= sqrt(number); i++) {
         if(number % i == 0 && isPrime(i)) {
-            return i;
+            number /= i;
+            i = 1;
         }
     }
+
+    return number;
 }
 
 /**
@@ -49,7 +56,12 @@ uint64_t largestPrimeFactor(uint64_t number) {
  */
 void test() {
     // The following lines tests the program of correct behaviour
+    assert(largestPrimeFactor(600851475143) == 6857);
     assert(largestPrimeFactor(13195) == 29);
+    assert(largestPrimeFactor(10) == 5);
+    assert(largestPrimeFactor(20) == 5);
+    assert(largestPrimeFactor(4) == 2);
+    assert(largestPrimeFactor(5) == 5);
 }
 
 /**
