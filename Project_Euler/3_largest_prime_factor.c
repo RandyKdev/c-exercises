@@ -34,14 +34,18 @@ bool isPrime(uint64_t number) {
     return true;
 }
 
+// todo: complete comments
+
 /**
  * @brief Finds the largest prime factor of `number`
  * @param number the number to find the largest prime factor of
  * @returns The largest prime factor of `number` 
  */
 uint64_t largestPrimeFactor(uint64_t number) {
+    // the for loop starts from 2 because that is the first prime number
+    // the for loop runs through square root of `number` because [...](https://www.geeksforgeeks.org/prime-factor/)
     for(uint64_t i = 2; i <= sqrt(number); i++) {
-        if(number % i == 0 && isPrime(i)) {
+        if(number % i == 0 && isPrime(i)) { 
             number /= i;
             i = 1;
         }
