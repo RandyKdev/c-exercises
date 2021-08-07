@@ -11,6 +11,7 @@
 
 #include <stdio.h>  // for IO operations 
 #include <assert.h> // for assert function
+#include <stdio.h>
 
 /**
  * @brief Calculates the sum of the multiples of `num1` and `num2` below `limit`
@@ -28,7 +29,7 @@ int sumOfMult(int num1, int num2, int limit) {
         if(tempNum1 < limit) { // Checks if the current multiple of `num1` is less than `limit`
             sum += tempNum1;   // Adds current multiple of `num1` to `sum`
         }
-        if(tempNum2 < limit) { // Checks if the current multiple of `num2` is less than `limit`
+        if(tempNum2 < limit && tempNum2 % num1 != 0) { // Checks if the current multiple of `num2` is less than `limit` and if `tempNum2` is also divisible by `num1`
             sum += tempNum2;   // Adds current multiple of `num2` to `sum`
         }
         tempNum1 += num1; // Goes to next multiple of `num1`
@@ -44,8 +45,8 @@ int sumOfMult(int num1, int num2, int limit) {
  */
 void test() {
     // The following lines tests the program of correct behaviour
-    assert(sumOfMult(2, 6, 13) == 60);
-    assert(sumOfMult(3, 5, 1000) == 266333);
+    assert(sumOfMult(2, 6, 13) == 42);
+    assert(sumOfMult(3, 5, 1000) == 233168);
     assert(sumOfMult(3, 5, 10) == 23);
 }
 
