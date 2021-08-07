@@ -37,8 +37,10 @@ uint64_t sumOfEvenFibNumsUpto(uint64_t limit) {
     uint16_t term = 3;           // starting at term 3 (counting from 0) because fib sequence starts at 0, 1, 1, 2
     
     while((fibNum = fib(term)) < limit) { // Executes while the current fibonnaci number at the `term`'th position is less than `limit`
-        sum += fibNum;      // Adds the new fibonacci number to `sum`
-        term += 2;          // Adds `term` by 2 because we want even valued terms
+        if(fibNum % 2 == 0) { // Checks if `fibNum` is even
+            sum += fibNum;   // Adds the new even fibonacci number to `sum`
+        }
+        term++;          // Adds `term` by 1
     }
 
     return sum;
@@ -50,11 +52,11 @@ uint64_t sumOfEvenFibNumsUpto(uint64_t limit) {
  */
 void test() {
     // The following lines tests the program of correct behaviour
-    assert(sumOfEvenFibNumsUpto(4000000) == 5702886);
-    assert(sumOfEvenFibNumsUpto(10) == 7);
-    assert(sumOfEvenFibNumsUpto(20) == 20);
-    assert(sumOfEvenFibNumsUpto(30) == 20);
-    assert(sumOfEvenFibNumsUpto(50) == 54);
+    assert(sumOfEvenFibNumsUpto(4000000) == 4613732);
+    assert(sumOfEvenFibNumsUpto(10) == 10);
+    assert(sumOfEvenFibNumsUpto(20) == 10);
+    assert(sumOfEvenFibNumsUpto(30) == 10);
+    assert(sumOfEvenFibNumsUpto(50) == 44);
     assert(sumOfEvenFibNumsUpto(2) == 0);
     assert(sumOfEvenFibNumsUpto(5) == 2);
 }
