@@ -47,8 +47,8 @@ uint8_t getDigitAtLocation(uint64_t number, uint32_t location) {
  * @returns the length of `number`
  */
 uint32_t getLengthOfNumber(uint64_t number) {
-    uint32_t length = 1; // 
-    while((int)(number /= 10) > 0 && length++);
+    uint32_t length = 1; // the length of `number`
+    while((int)(number /= 10) > 0 && length++); // calculates the length of `number`
     return length;
 }
 
@@ -59,13 +59,15 @@ uint32_t getLengthOfNumber(uint64_t number) {
  * @returns `false` if `number` is NOT palindrome 
  */
 bool isPalindrome(uint64_t number) {
-    uint64_t length = getLengthOfNumber(number);
+    uint64_t length = getLengthOfNumber(number); // length of `number`
 
     for(uint64_t i = 0; i < length / 2; i++) {
-        if(getDigitAtLocation(number, i) != getDigitAtLocation(number, length - i - 1)) {
+    // Checks if digits at opposite ends of the `number` are the same
+        if(getDigitAtLocation(number, i) != getDigitAtLocation(number, length - i - 1)) { 
             return false;
         }
     }
+
     return true;
 }
 
@@ -86,8 +88,9 @@ uint64_t getSmallestNumber(uint64_t digits) {
  * @return The largest number with number of digits = `digits`
  */
 uint64_t getLargestNumber(uint64_t digits) {
-    uint64_t largestNum = 0;
+    uint64_t largestNum = 0; // largest number representable in `digits` digits
 
+    // appends 9 to the beginning of the number until it reaches `digits` digits
     for(int i = 0; i < digits; i++) {
         largestNum += (9 * pow(10, i));
     }
@@ -113,10 +116,9 @@ uint64_t getLargetPalindromeProduct(uint64_t digits) {
 
     uint64_t temp; // holds the product of i and j temporarily
 
-    // 
+    // runs from largest to smallest number multiplying each pair
     for(uint64_t i = largestNum; i >= smallestNum; i--) {
         for(uint64_t j = i; j >= smallestNum; j--) {
-
             temp = i * j;
 
             // Checks if temp is greater than lPP and if temp is a palindrome number
