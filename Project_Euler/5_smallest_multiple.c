@@ -9,9 +9,8 @@
  * link to [problem statement](https://projecteuler.net/problem=5)
  */
 
-#include <stdio.h>
-#include <assert.h>
-#include <inttypes.h>
+#include <assert.h>   // for assert function
+#include <inttypes.h> // for uint64_t, uint32_t data types
 
 /**
  * @brief Gets the Smallest Possible Multiple that is evenly divisible 
@@ -21,17 +20,27 @@
  * @returns The smallest possible multiple divisible by all numbers from `start` to `end`
  */
 static uint64_t getSmallestMultiple(uint32_t begin, uint32_t end) {
+    // holds the smallest multiple
     uint64_t smallestMultiple = end;
+
+    // while runs till the smalles multiple is found
     while(1) {
+        
+        // runs from `begin` to `end`
         for(uint32_t i = begin; i <= end; i++) {
+            
+            // checks if current `smallestMultiple` is divisible by `i`
             if(smallestMultiple % i != 0) {
                 break;
             }
+
+            // Checks if `i` is equal to `end`
             if(i == end) {
                 return smallestMultiple;
             }
         }
 
+        // adds `end` to `smallestMultiple`
         smallestMultiple += end;
     }
 }
