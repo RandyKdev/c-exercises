@@ -21,7 +21,19 @@
  * @returns The smallest possible multiple divisible by all numbers from `start` to `end`
  */
 static uint64_t getSmallestMultiple(uint32_t begin, uint32_t end) {
-    return;
+    uint64_t smallestMultiple = end;
+    while(1) {
+        for(uint32_t i = begin; i <= end; i++) {
+            if(smallestMultiple % i != 0) {
+                break;
+            }
+            if(i == end) {
+                return smallestMultiple;
+            }
+        }
+
+        smallestMultiple += end;
+    }
 }
 
 /**
@@ -30,7 +42,9 @@ static uint64_t getSmallestMultiple(uint32_t begin, uint32_t end) {
  */
 static void test() {
     // The following lines tests the program of correct behaviour
-    
+    assert(getSmallestMultiple(1, 20) == 232792560);
+    assert(getSmallestMultiple(1, 10) == 2520);
+    // TODO: test for 1 to 30
 }
 
 /**
@@ -41,3 +55,5 @@ int main() {
     test(); // runs self-test implementation of the program
     return 0;
 }
+
+// TODO: [Modify logic](https://projecteuler.net/action=quote;post_id=42)
