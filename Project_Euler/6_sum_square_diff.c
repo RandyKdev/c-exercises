@@ -32,8 +32,9 @@ static uint64_t getSumSquareDiff(uint32_t start, uint32_t end) {
  */
 static void test() {
     // The following lines tests the program of correct behaviour
-    printf("%ld\n", getSumSquareDiff(1, 100));
+    assert(getSumSquareDiff(1, 100) == 25164150);
     assert(getSumSquareDiff(1, 10) == 2640);
+    assert(getSumSquareDiff(1, 500) == 15645770750);
 }
 
 /**
