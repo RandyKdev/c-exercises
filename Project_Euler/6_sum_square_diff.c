@@ -13,13 +13,22 @@
 
 #include <assert.h>   // for assert function
 #include <inttypes.h> // for uint64_t, uint32_t data types
-#include <stdio.h>
 
+/**
+ * @brief Get the Sum Square Difference of a range numbers from `start` to `end` inclusive
+ * @param start the first number in the range of numbers
+ * @param end the last number in the range of numbers
+ * @returns The sum square difference
+ */
 static uint64_t getSumSquareDiff(uint32_t start, uint32_t end) {
-    uint64_t sumSquareDiff = 0;
+    uint64_t sumSquareDiff = 0; // sets `sumSquareDiff` to zero (0)
+
+    // Iterates through the range of numbers, taking every pair just once 
+    // and avoiding the pairs with same numbers
     for(uint32_t i = start; i < end; i++) {
         for(uint32_t j = i + 1; j <= end; j++) {
-            sumSquareDiff += 2 * i * j;
+            // multiplies by 2 because there exists another pair with same elements but reversed order
+            sumSquareDiff += 2 * i * j; 
         }
     }
 
@@ -45,5 +54,3 @@ int main() {
     test(); // runs self-test implementation of the program
     return 0;
 }
-
-// TODO: [Modify logic](https://projecteuler.net/action=quote;post_id=42)
