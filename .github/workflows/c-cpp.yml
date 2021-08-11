@@ -36,6 +36,14 @@ jobs:
         ./output
         gcc $GITHUB_WORKSPACE/Project_Euler/3_largest_prime_factor.c -o output -lm
         ./output
+        gcc $GITHUB_WORKSPACE/Project_Euler/4_largest_palindrome_product.c -o output -lm
+        ./output
+        gcc $GITHUB_WORKSPACE/Project_Euler/5_smallest_multiple.c -o output -lm
+        ./output
+        gcc $GITHUB_WORKSPACE/Project_Euler/6_sum_square_diff.c -o output -lm
+        ./output
+        gcc $GITHUB_WORKSPACE/Project_Euler/7_nth_prime_number.c -o output -lm
+        ./output
         rm output
       
 
