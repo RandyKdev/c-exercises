@@ -10,8 +10,11 @@
 #include <inttypes.h> // for uint64_t, uint32_t data types
 #include <stdbool.h>  // for bool data type
 #include <math.h>     // for for sqrt function
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-#define SERIES "73167176531330624919225119674426574742355349194934\
+const char SERIES[] = "73167176531330624919225119674426574742355349194934\
 96983520312774506326239578318016984801869478851843\
 85861560789112949495459501737958331952853208805511\
 12540698747158523863050715693290963295227443043557\
@@ -30,15 +33,41 @@
 07198403850962455444362981230987879927244284909188\
 84580156166097919133875499200524063689912560717606\
 05886116467109405077541002256983155200055935729725\
-71636269561882670428252483600823257530420752963450"
+71636269561882670428252483600823257530420752963450";
 
-uint64_t getLargestProduct(uint32_t numOfDigits) {
+uint8_t getDigitFromChar(char ch) {
+    uint8_t AsciiEquiv = (int) ch;
+    return AsciiEquiv - 48;
+}
+
+uint16_t getIndexOfLastZeroInRange(uint16_t index, uint16_t numOfDigits) {
+    uint8_t temp;
+    for(uint16_t i = index + numOfDigits - 1; i >= index; i--) {
+        temp = getDigitFromChar(SERIES[i]);
+        if(temp == 0) {
+            return i;
+        }
+    }
+}
+
+uint64_t getProductOfDigitsInRange(uint16_t index, uint16_t numOfDigits) {
+    uint8_t temp;
+    uint64_t productOfDigitsInRange = 1;
+    for(uint16_t i = index; i < index + numOfDigits; i++) {
+        temp = getDigitFromChar(SERIES[i]);
+        productOfDigitsInRange *= temp;
+    }
+
+    return productOfDigitsInRange;
+}
+
+uint64_t getLargestProduct(uint16_t numOfDigits) {
     uint16_t index = 0;
-    uint64_t largestProduct = -1;
+    uint64_t largestProduct = 0;
     uint64_t temp;
     while(index + numOfDigits <= 1000) {
         temp = getProductOfDigitsInRange(index, numOfDigits);
-        
+
         if(temp > largestProduct) {
             largestProduct = temp;
         }
@@ -59,6 +88,7 @@ uint64_t getLargestProduct(uint32_t numOfDigits) {
 static void test() {
     // The following lines tests the program of correct behaviour
     assert(getLargestProduct(4) == 5832);
+    printf("%ld\n", getLargestProduct(13));
 }
 
 /**
@@ -66,6 +96,6 @@ static void test() {
  * @returns 0 on exit
  */
 int main() {
-    // test(); // runs self-test implementation of the program
+    test(); // runs self-test implementation of the program
     return 0;
 }
