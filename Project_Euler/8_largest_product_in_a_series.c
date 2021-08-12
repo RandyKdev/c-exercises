@@ -33,7 +33,23 @@
 71636269561882670428252483600823257530420752963450"
 
 uint64_t getLargestProduct(uint32_t numOfDigits) {
-    return;
+    uint16_t index = 0;
+    uint64_t largestProduct = -1;
+    uint64_t temp;
+    while(index + numOfDigits <= 1000) {
+        temp = getProductOfDigitsInRange(index, numOfDigits);
+        
+        if(temp > largestProduct) {
+            largestProduct = temp;
+        }
+        
+        if(temp == 0) {
+            index = getIndexOfLastZeroInRange(index, numOfDigits);
+        }
+
+        index++;
+    }
+    return largestProduct;
 }
 
 /**
