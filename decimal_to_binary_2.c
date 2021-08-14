@@ -1,11 +1,11 @@
+/**
+ * @file 
+ * @brief coverts a decimal number into binary by bitwise operations
+ */
+
 #include<stdio.h>
-#include<assert.h>
 
 void decimalToBinary(int);
-
-void test() {
-    
-}
 
 int main(void) {
     int decimal;
