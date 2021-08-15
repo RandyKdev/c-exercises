@@ -2,15 +2,29 @@
 
 int main() {
     double a, b;
+    char operator;
     printf("Enter first operand: ");
     scanf("%lf", &a);
-    printf("Enter second operator: ");
+    printf("Enter operator: ");
+    scanf(" %c", &operator);
+    printf("Enter second operand: ");
     scanf("%lf", &b);
 
-    printf("The sum of the two numbers is %lf\n", a + b);
-    printf("The difference of the two numbers is %lf\n", a - b);
-    printf("The product of the two numbers is %lf\n", a * b);
-    printf("The quotient of the two numbers is %lf\n", a / b);
+    if(operator == '+') {
+        printf("The sum of the two numbers is %lf\n", a + b);
+    } else if(operator == '-') {
+        printf("The difference of the two numbers is %lf\n", a - b);    
+    } else if(operator == '*') {
+        printf("The product of the two numbers is %lf\n", a * b);
+    } else if(operator == '/') {
+        if(b != 0) {
+            printf("The quotient of the two numbers is %lf\n", a / b);
+        } else {
+            printf("The divisor is equal to zero. ERROR!\n");
+        }
+    } else {
+        printf("Enter a valid mathematical operator\n");
+    }
 
     return 0;
 }
