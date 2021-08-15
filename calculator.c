@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    double a, b;
+    printf("Enter first operand: ");
+    scanf("%lf", &a);
+    printf("Enter second operator: ");
+    scanf("%lf", &b);
+
+    printf("The sum of the two numbers is %lf\n", a + b);
+    printf("The difference of the two numbers is %lf\n", a - b);
+    printf("The product of the two numbers is %lf\n", a * b);
+    printf("The quotient of the two numbers is %lf\n", a / b);
+
+    return 0;
+}
+
+
+
+
+/*
+double add(double a, double b) {
+    return a + b;
+}
+
+double multiply(double a, double b) {
+    return a * b;
+}
+
+double divide(double dividend, double divisor) {
+    return dividend / divisor;
+}
+
+double subtract(double subtrahend, double subtractor) {
+    return subtrahend - subtractor;
+}
+
+ double sum = add(a, b);
+    double product = multiply(a, b);
+    double quotient = divide(a, b);
+    double difference = subtract(a, b);
+*/
