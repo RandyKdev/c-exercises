@@ -3,13 +3,13 @@
  * @brief A simple calculator
  */
 
-#include <stdio.h>
+#include <stdio.h> // for IO operations
 
-void greet();
-void showOptions();
-int getOption();
-void getOperands(double *a, double *b);
-void printResult(int option, double a, double b);
+void greet(); // Greets the user
+void showOptions(); // Shows available options 
+int getOption(); // Gets user's option
+void getOperands(double *a, double *b); // Gets operands from user
+void printResult(int option, double a, double b); // Prints result
 
 int main() {
     greet(); // greets the user
@@ -40,6 +40,7 @@ int main() {
  * @returns void
  */
 void greet() {
+    // Prints greeting message to the user
     printf("Hello, I'm here to make your life easier\n\n");
 }
 
@@ -48,12 +49,13 @@ void greet() {
  * @returns void
  */
 void showOptions() {
+    // Prints the options available to the user
     printf("1. Addition\n");
     printf("2. Subtraction\n");
     printf("3. Multiplication\n");
     printf("4. Division\n");
     printf("5. Exit\n");
-    printf("\n");
+    printf("\n"); // prints empty line for better visual clarity
 }
 
 /**
@@ -61,7 +63,9 @@ void showOptions() {
  * @returns option choosen by user
  */
 int getOption() {
-    int option;
+    int option; // holds option chooosen by the user
+
+    // Makes sure user's option is valid
     do {
         printf("Enter your choice (1-5): ");
         scanf("%d", &option);
@@ -77,6 +81,7 @@ int getOption() {
  * @returns void
  */
 void getOperands(double *a, double *b) {
+    // Gets the 2 operands from the user
     printf("\nEnter any two numbers: ");
     scanf("%lf %lf", a, b);
 }
@@ -91,6 +96,7 @@ void getOperands(double *a, double *b) {
 void printResult(int option, double a, double b) {
     printf("\nResult: ");
 
+    // Branching to execute correct operation
     if(option == 1) {
         printf("%lf\n", a + b);
     } else if(option == 2) {
@@ -98,7 +104,7 @@ void printResult(int option, double a, double b) {
     } else if(option == 3) {
         printf("%lf\n", a * b);
     } else {
-        if(b != 0) {
+        if(b != 0) { // checks if divisor is zero
             printf("%lf\n", a / b);
         } else {
             printf("ERROR, divisor is zero (0)\n");
