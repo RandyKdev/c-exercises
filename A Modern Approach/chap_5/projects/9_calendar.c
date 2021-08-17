@@ -1,5 +1,10 @@
-#include<stdio.h>
-#include<stdbool.h>
+/**
+ * @file 
+ * @brief Finds the smaller dates of two dates 
+ */
+
+#include <stdio.h>
+#include <stdbool.h>
 
 int main() {
     int firstDay, firstMonth, firstYear;
@@ -12,6 +17,7 @@ int main() {
     printf("Enter second date (mm/dd//yy): ");
     scanf("%d/%d/%d", &secondMonth, &secondDay, &secondYear);
 
+    // Converting dates entered to days
     daysOfFirstDate = (firstYear * 365) + (firstMonth * 30) + firstDay;
     daysOfSecondDate = (secondYear * 365) + (secondMonth * 30) + secondDay;
 
