@@ -6,7 +6,11 @@
 #include <assert.h> // for assert function
 #include <inttypes.h> // for uint64_t, uint32_t data types
 
-
+/**
+ * @brief Computes the factorial of `number`
+ * @param number the number for to find its factorial
+ * @returns The factorial of `number`
+ */
 uint64_t factorial(uint32_t number) {
     if(number == 0) return 1; // base case
     return number * factorial(number - 1);
