@@ -16,17 +16,17 @@ jobs:
     - name: build
       run: |
         sudo apt-get install build-essential
-        gcc $GITHUB_WORKSPACE/readability.c -o output -lm
+        gcc $GITHUB_WORKSPACE/CS50/readability.c -o output -lm
         ./output
-        gcc $GITHUB_WORKSPACE/scrabble.c -o output -lm
+        gcc $GITHUB_WORKSPACE/CS50/scrabble.c -o output -lm
         ./output
-        gcc $GITHUB_WORKSPACE/bubble_sort.c -o output -lm
+        gcc $GITHUB_WORKSPACE/DSA/bubble_sort.c -o output -lm
         ./output
-        gcc $GITHUB_WORKSPACE/selection_sort.c -o output -lm
+        gcc $GITHUB_WORKSPACE/DSA/selection_sort.c -o output -lm
         ./output
-        gcc $GITHUB_WORKSPACE/linear_search.c -o output -lm
+        gcc $GITHUB_WORKSPACE/DSA/linear_search.c -o output -lm
         ./output
-        gcc $GITHUB_WORKSPACE/binary_search.c -o output -lm
+        gcc $GITHUB_WORKSPACE/DSA/binary_search.c -o output -lm
         ./output
         rm output
         
