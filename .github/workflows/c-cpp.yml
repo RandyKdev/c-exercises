@@ -16,10 +16,12 @@ jobs:
     - name: build
       run: |
         sudo apt-get install build-essential
-        gcc $GITHUB_WORKSPACE/CS50/readability.c -o output -lm
+        
+        gcc $GITHUB_WORKSPACE/CS50/week_2/problem_sets/readability.c -o output -lm
         ./output
-        gcc $GITHUB_WORKSPACE/CS50/scrabble.c -o output -lm
+        gcc $GITHUB_WORKSPACE/CS50/week_2/labs/scrabble.c -o output -lm
         ./output
+
         gcc $GITHUB_WORKSPACE/DSA/bubble_sort.c -o output -lm
         ./output
         gcc $GITHUB_WORKSPACE/DSA/selection_sort.c -o output -lm
@@ -44,6 +46,9 @@ jobs:
         ./output
         gcc $GITHUB_WORKSPACE/Project_Euler/7_nth_prime_number.c -o output -lm
         ./output
+        gcc $GITHUB_WORKSPACE/Project_Euler/8_largest_product_in_a_series.c -o output -lm
+        ./output
+
         rm output
       
 
