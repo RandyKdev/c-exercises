@@ -1,4 +1,4 @@
-# Project Euler
+# A Modern Approach
 
 This folder contains exercises from the book C programming, A Modern Approach by K. N. King
 
