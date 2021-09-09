@@ -1,7 +1,10 @@
-# Project Euler
-
-This folder contains exercises of popularly known Data Structures and Algorithms
+# DSA
+This folder contains implementation of popular data strucutres and algorithms
 
 # Structure of folder
 
-Every file is a DSA implementation as seen by their names
+Every file contains an implementation of a DSA
+
+All filenames depicts the name of the DSA
+
+All implementations have tests, following TDD

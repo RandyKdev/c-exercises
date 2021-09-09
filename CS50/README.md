@@ -1,5 +1,4 @@
-# Project Euler
-
+# CS50
 This folder contains exercises from [CS50](https://cs50.harvard.edu/college/2021/fall/)
 
 # Structure of folder
