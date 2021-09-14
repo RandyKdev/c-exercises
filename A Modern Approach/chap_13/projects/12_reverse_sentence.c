@@ -4,7 +4,7 @@
  */
 
 #include<string.h> // for strcmp function
-#include<assert.h> // for assert function
+#include<assert.h> // for assert functiond
 
 #define WORDS 30   // The max number of words contained in sentence
 #define LETTERS 20 // The max number of letters a word can contain
