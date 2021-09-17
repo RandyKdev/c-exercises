@@ -1,4 +1,4 @@
-A program to swap two numbers using temporary/third variable.
+// A program to swap two numbers using temporary/third variable.
 
 #include<stdio.h>
 #include<conio.h>
