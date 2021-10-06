@@ -7,7 +7,7 @@ char *spinalCase(const char *str) {
     int lenOfStr = strlen(str); // computes length of str
                               
     // reserves enough space to store spinal string
-    char *spinalStr = (char *) malloc(lenOfStr); 
+    char *spinalStr = (char *) malloc(lenOfStr + 1); 
                               
     int posOfStr = 0; // holds position in str
     int posOfSpinalStr = 0; // holds position in spinal string
