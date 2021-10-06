@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <assert.h> // for assert function
 #include <stdlib.h> // for malloc function
 #include <string.h> // for strlen, strcat, strncat, strcpy functions
 #include <stdbool.h> // for bool data type
