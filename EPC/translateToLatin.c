@@ -3,6 +3,12 @@
 #include <string.h> // for strlen, strcat, strncat, strcpy functions
 #include <stdbool.h> // for bool data type
 
+/**
+ * @brief Checks if a letter is a vowel
+ * @param letter letter to be checked if it is a vowel
+ * @returns true if `letter` is a vowel
+ * @returns false if `letter` is not a vowel
+ */
 bool isVowel(char letter) {
     const char *vowels = "aeiou"; // list of vowels
     
@@ -18,6 +24,12 @@ bool isVowel(char letter) {
     return false;
 }
 
+/**
+ * @brief Checks if a letter is a consonant
+ * @param letter letter to be checked if it is a consonant
+ * @returns true if `letter` is a consonant
+ * @returns false if `letter` is not a consonant
+ */
 bool isConsonant(char letter) {
     // list of consonants
     const char *consonants = "bcdfghjklmnpqrstvwxyz";
@@ -34,6 +46,11 @@ bool isConsonant(char letter) {
     return false;
 }
 
+/**
+ * @brief Gets the location (pointer) Of the first non-consonant letter in `word`
+ * @param word the word in which the first non-consonant letter is to be checked
+ * @returns the pointer to the first non-consonant letter in `word`
+ */
 char *getLocationOfFirstNonConsonant(char *word) {
     // Goes through the word
     while(*word) {
@@ -49,6 +66,11 @@ char *getLocationOfFirstNonConsonant(char *word) {
     return word;
 }
 
+/**
+ * @brief Translates `word` to latin
+ * @param word the word to be translated to latin
+ * @returns A pointer to a string which contains the latin word
+ */
 char *translateToLatin(char *word) {
     char *latinWord; // pointer to the latin word
     
@@ -82,9 +104,33 @@ char *translateToLatin(char *word) {
     return latinWord;
 }
 
-int main() {
-    char str[] = "224wa";
-    printf("%s\n", translateToLatin(str));
+/**
+ * @brief Self-test Implementations
+ * @returns void
+ */
+void test(void) {
+    // The following lines tests the program of correct behaviour
+    char *str = "224wa";
+    char *solnStr = translateToLatin(str);
+    assert(strcmp(solnStr, "224wa") == 0);
+    free(solnStr);
+    
+    str = "paragraph";
+    solnStr = translateToLatin(str);
+    assert(strcmp(solnStr, "aragraphpay") == 0);
+    free(solnStr);
 
+    str = "eight";
+    solnStr = translateToLatin(str);
+    assert(strcmp(solnStr, "eightway") == 0);
+    free(solnStr);
+}
+
+/**
+ * @brief Main function
+ * @returns 0 on exit
+ */
+int main(void) {
+    test(); // runs self-test implementation of the program
     return 0;
 }
