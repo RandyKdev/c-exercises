@@ -1,3 +1,17 @@
+/**
+ * @file
+ * @brief Translates a word to latin
+ * @details
+ * Problem Statement
+ * Latin is a way of altering English Words. The rules are as follows:
+ * If a word begins with a consonant, take the first consonant or consonant cluster, 
+ * move it to the end of the word, and add ay to it.
+ * If a word begins with a vowel, just add way at the end.
+ * Example : 
+ * For consonant : translateLatin("paragraphs") should return the string aragraphspay
+ * For Vowel: translateLatin("eight") should return the string eightway.
+ */
+
 #include <assert.h> // for assert function
 #include <stdlib.h> // for malloc function
 #include <string.h> // for strlen, strcat, strncat, strcpy functions
