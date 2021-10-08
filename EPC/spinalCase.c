@@ -1,8 +1,21 @@
-#include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
-#include <string.h>
+/**
+ * @file
+ * @brief Translates a string of words to spinal case
+ * @details
+ * Problem Statement
+ * Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+ * Example: spinalCase("This Is Spinal Tap") should return the string this-is-spinal-tap
+ */
 
+#include <ctype.h> // for tolower function
+#include <stdlib.h> // for malloc function
+#include <string.h> // for strlen function
+
+/**
+ * @brief translates a string to spinal case
+ * @param str the string to be turned to spinal case
+ * @returns the pointer to spinal case string
+ */
 char *spinalCase(const char *str) {
     int lenOfStr = strlen(str); // computes length of str
                               
@@ -46,8 +59,22 @@ char *spinalCase(const char *str) {
     return spinalStr;
 }
 
-int main() {
-    char str[] = "   This   is    spinal     case   ";
-    printf("%s h\n", spinalCase(str));
+/**
+ * @brief Self-test Implementations
+ * @returns void
+ */
+void test(void) {
+    // The following lines tests the program of correct behaviour
+    char *solnStr = spinalCase("   This   is    spinal     case   ");
+    assert(strcmp(solnStr, "this-is-spinal-case") == 0);
+    free(solnStr);
+}
+
+/**
+ * @brief Main function
+ * @returns 0 on exit
+ */
+int main(void) {
+    test(); // runs self-test implementation of the program
     return 0;
 }
