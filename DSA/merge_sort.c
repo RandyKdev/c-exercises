@@ -3,9 +3,16 @@
  * @brief A program that implements merge sort algo
  */
 
-#include<stdio.h>   /// for IO operations
-#include<assert.h>  /// for tests
+#include<assert.h>  // for assert function
 
+/**
+ * @brief Merges two sorted sub arrays
+ * @param numbers the array containing the two sub sorted arrays
+ * @param leftIndex the start index of one of the sorted arrays
+ * @param rightIndex the end index of the sorted array
+ * @param middle the index at which the two sorted arrays meet
+ * @returns void
+ */
 void merge(int numbers[], int leftIndex, int rightIndex, int middle) {
     int tempLeftArr[middle - leftIndex + 1]; // left sub array
     int tempRightArr[rightIndex - middle]; // right sub array
@@ -29,6 +36,13 @@ void merge(int numbers[], int leftIndex, int rightIndex, int middle) {
         else numbers[i] = tempRightArr[tempRightArrIndex++];
 }
 
+/**
+ * @brief Sorts an array of numbers using merge sort algo
+ * @param numbers the array of numbers to be sorted
+ * @param leftIndex the start left index of `numbers`
+ * @param rightIndex the end right index of `numbers`
+ * @returns void
+ */
 void merge_sort(int numbers[], int leftIndex, int rightIndex) {
 
     if(leftIndex == rightIndex) return; // edge case, when there is only one number in the array
@@ -41,7 +55,12 @@ void merge_sort(int numbers[], int leftIndex, int rightIndex) {
     merge(numbers, leftIndex, rightIndex, middle); // merging sub arrays in main array
 }
 
+/**
+ * @brief Self-test Implementations
+ * @returns void
+ */
 void test() {
+     // The following lines tests the program of correct behaviour
     int test1[] = {5, 4, 3, 2, 1};
     int test2[] = {6, 5, 4, 3, 2, 1};
     int test3[] = {-2, -3, -1, 0};
@@ -58,9 +77,11 @@ void test() {
         assert(test3[i] == i - 3);    
 }
 
-int main() {
-
-    test();
-
+/**
+ * @brief Main function
+ * @returns 0 on exit
+ */
+int main(void) {
+    test(); // runs self-test implementation of the program
     return 0;
 }
