@@ -24,14 +24,17 @@
  * @returns pointer to the new formatted string
  */
 char *searchAndReplace(const char *str, const char *search, const char *replace) {
-    char *newStr = (char *) malloc(strlen(str) + 1);
+    int lenReplace = strlen(replace);
+    int lenSearch = strlen(search);
+    int lenStr = strlen(str);
+    char *newStr = (char *) malloc(lenStr + 1);
     *newStr = '\0';
     char *newStrPtr = newStr;
-    while(*(str + strlen(search) - 1)) {
-        if(strncmp(str, search, strlen(search)) == 0) {
+    while(*(str + lenSearch - 1)) {
+        if(strncmp(str, search, lenSearch) == 0) {
             strcat(newStr, replace);
-            str += strlen(replace);
-            newStr += strlen(replace);
+            str += lenReplace;
+            newStr += lenReplace;
             continue;
         }
         strncat(newStr++, str++, 1);
