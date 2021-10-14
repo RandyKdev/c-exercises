@@ -1,11 +1,28 @@
-// For simplicity this solutions takes into condideration only 
-// the case where the search and replace strings are of equal length
+/**
+ * @file
+ * @brief Seaches and replaces a string with another in a given strin
+ * @details
+ * Problem Statement
+ * Perform a search and replace on the sentence using the arguments provided and return the new sentence.
+ * First argument is the sentence to perform the search and replace on.
+ * Second argument is the word that you will be replacing (before).
+ * Third argument is what you will be replacing the second argument with (after).
+ * 
+ * For simplicity this solutions takes into condideration only 
+ * the case where the search and replace strings are of equal length
+ */
 
-#include <stdio.h>
-#include <assert.h>
-#include <stdlib.h>
-#include <string.h>
+#include <assert.h> // for assert function
+#include <stdlib.h> // for malloc and free function
+#include <string.h> // for strlen, strcat, strncat and strncmp functions
 
+/**
+ * @brief Seaches and replaces a string with another in a given string 
+ * @param str the string to be formatted
+ * @param search the string to be replaced in `str`
+ * @param replace the string to be replaced in place of `search`
+ * @returns pointer to the new formatted string
+ */
 char *searchAndReplace(const char *str, const char *search, const char *replace) {
     char *newStr = (char *) malloc(strlen(str) + 1);
     *newStr = '\0';
@@ -42,9 +59,11 @@ void test(void) {
     free(solnStr);
 }
 
-
+/**
+ * @brief Main function
+ * @returns 0 on exit
+ */
 int main(void) {
-    printf("%s\n", searchAndReplace("hey i am", "am", "he"));
-    // assert(strcmp(searchAndReplace("hey i am", "am", "hey"), "hey i hey") == 0);
+    test(); // runs self-test implementation of the program
     return 0;
 }
