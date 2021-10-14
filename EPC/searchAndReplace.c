@@ -23,7 +23,27 @@ char *searchAndReplace(const char *str, const char *search, const char *replace)
     return newStrPtr;
 }
 
-int main() {
+/**
+ * @brief Self-test Implementations
+ * @returns void
+ */
+void test(void) {
+    // The following lines tests the program of correct behaviour
+    char *solnStr = searchAndReplace("hey i am", "am", "he");
+    assert(strcmp(solnStr, "hey i he") == 0);
+    free(solnStr);
+
+    solnStr = searchAndReplace("I am a worker in a company", "worker", "should");
+    assert(strcmp(solnStr, "I am a should in a company") == 0);
+    free(solnStr);
+
+    solnStr = searchAndReplace("I am in worker in a company", "in", "an");
+    assert(strcmp(solnStr, "I am an worker an a company") == 0);
+    free(solnStr);
+}
+
+
+int main(void) {
     printf("%s\n", searchAndReplace("hey i am", "am", "he"));
     // assert(strcmp(searchAndReplace("hey i am", "am", "hey"), "hey i hey") == 0);
     return 0;
