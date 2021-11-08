@@ -9,9 +9,7 @@
  * link to [problem statement](https://projecteuler.net/problem=1)
  */
 
-#include <stdio.h>  // for IO operations 
 #include <assert.h> // for assert function
-#include <stdio.h>
 
 /**
  * @brief Calculates the sum of the multiples of `num1` and `num2` below `limit`
