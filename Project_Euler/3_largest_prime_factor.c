@@ -31,7 +31,8 @@ bool isPrime(uint64_t number) {
     // `number` at this stage must be odd
     // for loop runs from 3 and increments by 2 because only odd numbers divides odd numbers
     // for loop ends at square root of `number` being less than i
-    for(uint64_t i = 3; i <= sqrt(number); i += 2) {
+    int sqRoot = sqrt(number); // holds the square root of `number`
+    for(uint64_t i = 3; i <= sqRoot; i += 2) {
         if(number % i == 0) { // if `number` is divisible by `i`, then it is not prime
             return false;
         }
